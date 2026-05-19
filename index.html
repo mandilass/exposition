@@ -6,7 +6,7 @@
     <title>Desarrollo Embrionario y Parto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght=400;700&family=DM+Sans:wght=400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Merriweather:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
@@ -282,15 +282,15 @@
         <div class="timeline">
             <div class="timeline-item">
                 <h3>Dilatación</h3>
-                <p style="font-size: 15px;">Comienza con contracciones y concluye cuando el cuello se dilata completamente. El saco amniótico se rompe expulsando fluidos.</p>
+                <p style="font-size: 15px;">Comienza con las contracciones del útero y concluye cuando el cuello uterino se dilata completamente. Durante este proceso, el saco amniótico se rompe y se expulsan fluidos.</p>
             </div>
             <div class="timeline-item">
                 <h3>Expulsión</h3>
-                <p style="font-size: 15px;">Comienza con la dilatación completa, permitiendo la salida del bebé, quien al nacer respira, llora y empieza su vida.</p>
+                <p style="font-size: 15px;">El parto comienza con la dilatación completa del cuello uterino, permitiendo la expulsión del bebé, quien al nacer respira, llora y empieza su vida.</p>
             </div>
             <div class="timeline-item">
                 <h3>Etapa placentaria</h3>
-                <p style="font-size: 15px;">Inicia de 20 a 30 minutos después del nacimiento y concluye con la expulsión completa de la placenta.</p>
+                <p style="font-size: 15px;">Esta fase inicia entre 20 y 30 minutos después del nacimiento y concluye con la expulsión de la placenta, acompañada de contracciones uterinas que también expulsan fluidos sanguíneos.</p>
             </div>
         </div>
     </div>
@@ -340,7 +340,7 @@
         });
         counter.textContent = `${currentSlide + 1} / ${slides.length}`;
         
-        // Deshabilitar flechas si estás al principio o al final
+        // Deshabilitar u opacar flechas en extremos
         prevBtn.style.opacity = currentSlide === 0 ? "0.3" : "1";
         sidePrevBtn.style.opacity = currentSlide === 0 ? "0.1" : "1";
         nextBtn.style.opacity = currentSlide === slides.length - 1 ? "0.3" : "1";
@@ -355,15 +355,11 @@
         if (currentSlide > 0) { currentSlide--; updateSlides(); }
     }
 
-    // Eventos para botones inferiores
     prevBtn.addEventListener('click', prevPage);
     nextBtn.addEventListener('click', nextPage);
-
-    // Eventos para flechas grandes laterales
     sidePrevBtn.addEventListener('click', prevPage);
     sideNextBtn.addEventListener('click', nextPage);
 
-    // Control por teclado
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ') {
             nextPage();
