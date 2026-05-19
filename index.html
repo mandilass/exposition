@@ -10,18 +10,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
-        body { margin: 0; padding: 20px 0; background-color: #e2e8f0; display: grid; gap: 40px; place-items: center; }
+        body { margin: 0; padding: 0; background-color: #0b1329; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
 
         .slide-container {
             width: 1280px; height: 720px;
             background-color: #FAF9F6;
             color: #003366;
             font-family: 'DM Sans', sans-serif;
-            overflow-y: auto;
-            position: relative;
+            position: absolute;
             padding: 60px;
-            display: flex; flex-direction: column;
-            border-radius: 8px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: none; flex-direction: column;
+            border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Diapositiva activa */
+        .slide-container.active { display: flex; animation: fadeIn 0.5s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .slide-container::before {
@@ -61,31 +68,29 @@
 
         .highlight-numbers { display: flex; gap: 40px; width: 100%; }
         .number-box { flex: 1; text-align: center; }
-        .number { font-size: 100px; font-weight: 700; color: #11CAA0; font-family: 'Merriweather', serif; }
+        .number { font-size: 80px; font-weight: 700; color: #11CAA0; font-family: 'Merriweather', serif; }
         .number-label { font-size: 24px; font-weight: 500; margin-top: 10px; }
 
         .table-layout table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; }
-        .table-layout th { background: #003366; color: white; padding: 20px; text-align: left; }
-        .table-layout td { padding: 15px 20px; border-bottom: 1px solid #e2e8f0; font-size: 18px; }
+        .table-layout th { background: #003366; color: white; padding: 15px; text-align: left; }
+        .table-layout td { padding: 12px 15px; border-bottom: 1px solid #e2e8f0; font-size: 17px; }
         .table-layout tr:nth-child(even) { background: #f8fafc; }
 
         .timeline { position: relative; width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 50px; }
         .timeline::before { content: ''; position: absolute; top: 25px; left: 0; width: 100%; height: 4px; background: #cbd5e1; }
-        .timeline-item { flex: 1; position: relative; padding-top: 60px; text-align: center; padding-index: 10px; }
+        .timeline-item { flex: 1; position: relative; padding-top: 60px; text-align: center; padding-inline: 10px; }
         .timeline-item::after { content: ''; position: absolute; top: 17px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: #11CAA0; border: 4px solid #FAF9F6; border-radius: 50%; }
 
-        .bullet-list { list-style: none; padding: 0; }
-        .bullet-list li { margin-bottom: 25px; position: relative; padding-left: 40px; }
-        .bullet-list i { position: absolute; left: 0; top: 5px; color: #11CAA0; font-size: 24px; }
-
-        .rounded-image-layout { display: flex; align-items: center; gap: 60px; width: 100%; }
-        .rounded-image-wrapper { width: 380px; height: 380px; border-radius: 50%; overflow: hidden; border: 10px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-shrink: 0; background: white; }
-        .rounded-image-wrapper img { width: 100%; height: 100%; object-fit: contain; padding: 15px; }
+        /* Controles de Navegación flotantes */
+        .nav-controls { position: fixed; bottom: 20px; right: 30px; display: flex; gap: 15px; z-index: 100; }
+        .nav-btn { background-color: #003366; color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: all 0.2s ease; }
+        .nav-btn:hover { background-color: #11CAA0; transform: scale(1.1); }
+        .slide-counter { position: fixed; bottom: 32px; right: 160px; color: white; font-family: 'DM Sans', sans-serif; font-size: 18px; z-index: 100; font-weight: 500; }
     </style>
 </head>
 <body>
 
-<div class="slide-container" id="slide1">
+<div class="slide-container active" id="slide1">
     <div class="title-layout">
         <p style="text-transform: uppercase; letter-spacing: 3px; color: #11CAA0; font-weight: 700;">Biología y Geografía</p>
         <h1>Desarrollo Embrionario <br> y el Parto Humano</h1>
@@ -96,7 +101,7 @@
 <div class="slide-container" id="slide2">
     <h2 class="slide-title">1.2 Formaciones embrionarias</h2>
     <div class="content-area">
-        <p style="font-size: 22px; text-align: justify;">
+        <p style="font-size: 22px; text-align: justify; line-height: 1.6;">
             La fecundación y las primeras etapas de segmentación del cigoto ocurren en las trompas de Falopio. El cigoto llega al útero en forma de blástula. Antes de la nidación (aproximadamente siete días después de la fecundación), la blástula experimenta un aumento de volumen. El proceso de nidación ocurre en la mucosa uterina gracias a las enzimas secretadas por las células del trofoblasto. A las ocho semanas de desarrollo, el embrión presenta características humanas y pasa a denominarse feto, adhiriéndose firmemente a la pared del útero a través de la placenta.
         </p>
     </div>
@@ -112,7 +117,7 @@
                     La blástula se transforma en un embrión de tres capas gracias a la mitosis y migración de blastómeros, dando lugar a las capas germinales: ectodermo, endodermo y mesodermo.
                 </p>
                 <h3>Organogénesis</h3>
-                <ul style="font-size: 16px; padding-left: 20px; color: #334155;">
+                <ul style="font-size: 16px; padding-left: 20px; color: #334155; line-height: 1.6;">
                     <li><strong>Ectodermo:</strong> Da lugar a la epidermis, pelo, uñas, glándulas sudoríparas, salivales y al sistema nervioso.</li>
                     <li><strong>Endodermo:</strong> Origina el tubo digestivo, hígado, páncreas, epitelios de la tráquea, bronquios y pulmones.</li>
                     <li><strong>Mesodermo:</strong> Se convierte en tejido conjuntivo, sistema muscular, riñones, uréteres, gónadas, sistema circulatorio, excretor y óseo.</li>
@@ -131,7 +136,7 @@
         <div class="tiled-content">
             <div class="tile">
                 <h3>El saco vitelino</h3>
-                <p style="font-size: 16px;">No contiene vitelo. Da origen a la alantoides a los 16 días. Acompaña al feto y forma el cordón umbilical para transportar desechos metabólicos (urea y amoníaco).</p>
+                <p style="font-size: 16px;">No contiene vitelo. Da origen a la alantoides a los 16 días. Acompaña al feto y forma el cordón umbilical para transportar desechos metabólicos.</p>
             </div>
             <div class="tile">
                 <h3>El amnios</h3>
@@ -170,8 +175,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 25%;">Mes</th>
-                        <th style="width: 75%;">Características del Desarrollo</th>
+                        <th style="width: 20%;">Mes</th>
+                        <th style="width: 80%;">Características del Desarrollo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -181,7 +186,7 @@
                     </tr>
                     <tr>
                         <td><strong>Segundo mes</strong></td>
-                        <td>Formación de extremidades, órganos principales y rasgos faciales; desarrollo del sistema nervioso central y cierre del tubo neural. El embrión, ahora feto, inicia sus primeros movimientos.</td>
+                        <td>Formación de extremidades, órganos principales y rasgos faciales; desarrollo del sistema nervioso central y cierre del tubo neural. El feto inicia sus primeros movimientos.</td>
                     </tr>
                     <tr>
                         <td><strong>Tercer mes</strong></td>
@@ -200,22 +205,22 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 25%;">Mes</th>
-                        <th style="width: 75%;">Características del Desarrollo</th>
+                        <th style="width: 20%;">Mes</th>
+                        <th style="width: 80%;">Características del Desarrollo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>Cuarto mes</strong></td>
-                        <td>El feto desarrolla músculos y nervios con movimientos coordinados, aparecen cabellos, cejas y órganos como el aparato digestivo comienzan a funcionar parcialmente (succión de líquido amniótico).</td>
+                        <td>El feto desarrolla músculos y nervios con movimientos coordinados, aparecen cabellos, cejas y órganos como el aparato digestivo comienzan a funcionar parcialmente.</td>
                     </tr>
                     <tr>
                         <td><strong>Quinto mes</strong></td>
-                        <td>La madre siente los movimientos fetales, la piel se cubre de vérnix caseosa y lanugo, se forman huellas dactilares, se definen los huesos y avanza el desarrollo del sistema nervioso central.</td>
+                        <td>La madre siente los movimientos fetales, la piel se cubre de vérnix caseosa y lanugo, se forman huellas dactilares, se definen los huesos y avanza el desarrollo del sistema nervioso.</td>
                     </tr>
                     <tr>
                         <td><strong>Sexto mes</strong></td>
-                        <td>Al final del segundo trimestre, los pulmones desarrollan bronquiolos y sacos alveolares, el feto abre los ojos, escucha y responde a sonidos externos.</td>
+                        <td>Al final del segundo trimestre, los pulmones desarrollan bronquiolos, el feto abre los ojos, escucha y responde a sonidos externos.</td>
                     </tr>
                 </tbody>
             </table>
@@ -230,8 +235,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 25%;">Mes</th>
-                        <th style="width: 75%;">Características del Desarrollo</th>
+                        <th style="width: 20%;">Mes</th>
+                        <th style="width: 80%;">Características del Desarrollo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -256,7 +261,7 @@
 <div class="slide-container" id="slide9">
     <h2 class="slide-title">2. El parto en los seres humanos</h2>
     <div class="content-area">
-        <p style="font-size: 20px; text-align: justify; margin-bottom: 30px;">
+        <p style="font-size: 22px; text-align: justify; line-height: 1.6;">
             Después de nueve meses de embarazo, se produce la separación del hijo del útero materno (nacimiento o parto). El tapón cervical, compuesto de moco y desarrollado bajo la influencia de la progesterona, protege al útero de bacterias. En el 95% de los nacimientos, el feto se presenta con la cabeza hacia abajo.
         </p>
     </div>
@@ -268,15 +273,15 @@
         <div class="timeline">
             <div class="timeline-item">
                 <h3>Dilatación</h3>
-                <p style="font-size: 15px;">Comienza con las contracciones del útero y concluye cuando el cuello se dilata completamente. El saco amniótico se rompe expulsando fluidos.</p>
+                <p style="font-size: 15px;">Comienza con contracciones y concluye cuando el cuello se dilata completamente. El saco amniótico se rompe expulsando fluidos.</p>
             </div>
             <div class="timeline-item">
                 <h3>Expulsión</h3>
-                <p style="font-size: 15px;">Comienza con la dilatación completa del cuello uterino, permitiendo la expulsión del bebé, quien al nacer respira, llora y empieza su vida.</p>
+                <p style="font-size: 15px;">Comienza con la dilatación completa, permitiendo la salida del bebé, quien al nacer respira, llora y empieza su vida.</p>
             </div>
             <div class="timeline-item">
                 <h3>Etapa placentaria</h3>
-                <p style="font-size: 15px;">Inicia entre 20 y 30 minutos después del nacimiento y concluye con la expulsión de la placenta, acompañada de contracciones uterinas que expulsan fluidos sanguíneos.</p>
+                <p style="font-size: 15px;">Inicia de 20 a 30 minutos después del nacimiento y concluye con la expulsión completa de la placenta.</p>
             </div>
         </div>
     </div>
@@ -287,15 +292,12 @@
     <div class="content-area">
         <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
             <div>
-                <p style="font-size: 18px; text-align: justify;">
-                    Se recomienda una dieta equilibrada rica en frutas, verduras y cereales integrales, evitando alimentos grasos y azucarados. Es importante incluir leche, productos lácteos, jugo de naranja, brócoli y pescado. 
-                </p>
-                <p style="font-size: 18px; text-align: justify; margin-top: 10px;">
-                    Se debe tomar ácido fólico un mes antes de la concepción y durante los primeros tres meses, además de suplementos de hierro y limitar el consumo de té, café y chocolate. Evitar totalmente el consumo de alcohol y drogas.
+                <p style="font-size: 18px; text-align: justify; line-height: 1.5;">
+                    Se recomienda una dieta equilibrada rica en frutas, verduras, lácteos, huevo y pescado, evitando grasas. Es vital tomar ácido fólico antes y durante el inicio de la gestación, además de suplementos de hierro. Evitar totalmente el alcohol y tabaco.
                 </p>
             </div>
             <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/17220127266506424180" alt="Esquema de etapas del parto">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17220127266506424180" alt="Esquema nutrición">
             </div>
         </div>
     </div>
@@ -305,13 +307,53 @@
     <div class="title-layout">
         <h2 style="font-size: 48px;">Prevención y Proyecto de Vida</h2>
         <p style="max-width: 900px; margin: 30px auto; font-size: 22px; text-align: center;">
-            El 26 de septiembre se recuerda el "Día mundial de la Prevención del Pregreso no Planificado en Adolescentes", buscando concienciar sobre proyectos de vida saludables. Tomar decisiones adecuadas nos permite continuar estudiando para formarnos como profesionales.
+            El 26 de septiembre se recuerda el "Día mundial de la Prevención del Embarazo no Planificado en Adolescentes". Tomar decisiones adecuadas nos permite continuar estudiando para formarnos como profesionales.
         </p>
         <div style="margin-top: 30px;">
             <p style="font-weight: bold; font-size: 24px; color: #11CAA0;">¡Muchas gracias por su atención!</p>
         </div>
     </div>
 </div>
+
+<div class="slide-counter" id="counter">1 / 12</div>
+<div class="nav-controls">
+    <button class="nav-btn" id="prevBtn"><i class="fa-solid fa-arrow-left"></i></button>
+    <button class="nav-btn" id="nextBtn"><i class="fa-solid fa-arrow-right"></i></button>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const counter = document.getElementById('counter');
+    let currentSlide = 0;
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+        counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentSlide > 0) { currentSlide--; updateSlides(); }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentSlide < slides.length - 1) { currentSlide++; updateSlides(); }
+    });
+
+    // Control por flechas del teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            if (currentSlide < slides.length - 1) { currentSlide++; updateSlides(); }
+        } else if (e.key === 'ArrowLeft') {
+            if (currentSlide > 0) { currentSlide--; updateSlides(); }
+        }
+    });
+
+    updateSlides();
+</script>
 
 </body>
 </html>
