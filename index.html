@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { box-sizing: border-box; }
-        body { margin: 0; padding: 20px 0; background-color: #e2e8f0; display: grid; gap: 20px; place-items: center; }
+        body { margin: 0; padding: 20px 0; background-color: #e2e8f0; display: grid; gap: 40px; place-items: center; }
 
         .slide-container {
             width: 1280px; height: 720px;
             background-color: #FAF9F6;
             color: #003366;
             font-family: 'DM Sans', sans-serif;
-            overflow: hidden;
+            overflow-y: auto;
             position: relative;
             padding: 60px;
             display: flex; flex-direction: column;
@@ -46,8 +46,8 @@
 
         .content-area { flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; }
 
-        .title-layout { text-align: center; justify-content: center; height: 100%; }
-        .section-title-layout { text-align: center; justify-content: center; height: 100%; }
+        .title-layout { text-align: center; justify-content: center; height: 100%; display: flex; flex-direction: column; align-items: center; }
+        .section-title-layout { text-align: center; justify-content: center; height: 100%; display: flex; flex-direction: column; align-items: center; }
         .section-title-layout h2 { font-size: 64px; }
 
         .two-column { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; width: 100%; align-items: center; }
@@ -71,7 +71,7 @@
 
         .timeline { position: relative; width: 100%; display: flex; justify-content: space-between; align-items: flex-start; margin-top: 50px; }
         .timeline::before { content: ''; position: absolute; top: 25px; left: 0; width: 100%; height: 4px; background: #cbd5e1; }
-        .timeline-item { flex: 1; position: relative; padding-top: 60px; text-align: center; }
+        .timeline-item { flex: 1; position: relative; padding-top: 60px; text-align: center; padding-index: 10px; }
         .timeline-item::after { content: ''; position: absolute; top: 17px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: #11CAA0; border: 4px solid #FAF9F6; border-radius: 50%; }
 
         .bullet-list { list-style: none; padding: 0; }
@@ -94,125 +94,128 @@
 </div>
 
 <div class="slide-container" id="slide2">
-    <div class="section-title-layout">
-        <p style="color: #11CAA0; font-weight: 700;">Sección 1.2</p>
-        <h2>Formaciones Embrionarias</h2>
-        <div style="width: 100px; height: 5px; background: #11CAA0; margin: 40px auto;"></div>
+    <h2 class="slide-title">1.2 Formaciones embrionarias</h2>
+    <div class="content-area">
+        <p style="font-size: 22px; text-align: justify;">
+            La fecundación y las primeras etapas de segmentación del cigoto ocurren en las trompas de Falopio. El cigoto llega al útero en forma de blástula. Antes de la nidación (aproximadamente siete días después de la fecundación), la blástula experimenta un aumento de volumen. El proceso de nidación ocurre en la mucosa uterina gracias a las enzimas secretadas por las células del trofoblasto. A las ocho semanas de desarrollo, el embrión presenta características humanas y pasa a denominarse feto, adhiriéndose firmemente a la pared del útero a través de la placenta.
+        </p>
     </div>
 </div>
 
 <div class="slide-container" id="slide3">
-    <h2 class="slide-title">Etapas del Desarrollo Temprano</h2>
+    <h2 class="slide-title">Gastrulación y Organogénesis</h2>
     <div class="content-area">
-        <div class="tiled-content">
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-vial-circle-check"></i></div>
-                <h3>Segmentación</h3>
-                <p>Serie de divisiones celulares rápidas del cigoto mientras se desplaza por la trompa de Falopio.</p>
+        <div class="two-column">
+            <div>
+                <h3>Gastrulación</h3>
+                <p style="font-size: 18px; text-align: justify; margin-bottom: 15px;">
+                    La blástula se transforma en un embrión de tres capas gracias a la mitosis y migración de blastómeros, dando lugar a las capas germinales: ectodermo, endodermo y mesodermo.
+                </p>
+                <h3>Organogénesis</h3>
+                <ul style="font-size: 16px; padding-left: 20px; color: #334155;">
+                    <li><strong>Ectodermo:</strong> Da lugar a la epidermis, pelo, uñas, glándulas sudoríparas, salivales y al sistema nervioso.</li>
+                    <li><strong>Endodermo:</strong> Origina el tubo digestivo, hígado, páncreas, epitelios de la tráquea, bronquios y pulmones.</li>
+                    <li><strong>Mesodermo:</strong> Se convierte en tejido conjuntivo, sistema muscular, riñones, uréteres, gónadas, sistema circulatorio, excretor y óseo.</li>
+                </ul>
             </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-bacteria"></i></div>
-                <h3>Blastulación</h3>
-                <p>Las células se organizan formando el <strong>blastocisto</strong>, estructura que posee una cavidad interna fluida.</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-anchor"></i></div>
-                <h3>Implantación</h3>
-                <p>El blastocisto se fija firmemente a la capa interna del útero (endometrio) para comenzar su nutrición.</p>
+            <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/11125056737052511055" alt="Capas germinales">
             </div>
         </div>
     </div>
 </div>
 
 <div class="slide-container" id="slide4">
-    <h2 class="slide-title">El Embrión y Soporte Vital</h2>
+    <h2 class="slide-title">Anexos Embrionarios</h2>
     <div class="content-area">
-        <div class="two-column">
-            <div>
-                <ul class="bullet-list">
-                    <li><i class="fa-solid fa-shield-heart"></i><strong>Saco Vitelino:</strong> Provee los primeros nutrientes y células sanguíneas.</li>
-                    <li><i class="fa-solid fa-droplet"></i><strong>Amnios y Líquido:</strong> Bolsa hermética que amortigua, protege y evita la deshidratación.</li>
-                    <li><i class="fa-solid fa-link"></i><strong>Cordón Umbilical:</strong> Autopista de vasos sanguíneos que conecta al feto con la placenta.</li>
-                    <li><i class="fa-solid fa-circle-nodes"></i><strong>Placenta:</strong> Órgano mixto que filtra oxígeno y nutrientes esenciales.</li>
-                </ul>
+        <div class="tiled-content">
+            <div class="tile">
+                <h3>El saco vitelino</h3>
+                <p style="font-size: 16px;">No contiene vitelo. Da origen a la alantoides a los 16 días. Acompaña al feto y forma el cordón umbilical para transportar desechos metabólicos (urea y amoníaco).</p>
             </div>
-            <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/11125056737052511055" alt="Esquema del saco amniótico y placenta">
+            <div class="tile">
+                <h3>El amnios</h3>
+                <p style="font-size: 16px;">Se desarrolla en el décimo día y rodea casi por completo al embrión. La cavidad amniótica contiene el líquido amniótico que permite el desarrollo en medio acuoso.</p>
+            </div>
+            <div class="tile">
+                <h3>El corion</h3>
+                <p style="font-size: 16px;">Forma parte de la placenta embrionaria. Se origina desde el día 14 de gestación y permite el intercambio de nutrientes y oxígeno entre madre e hijo.</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="slide-container" id="slide5">
-    <h2 class="slide-title">Funciones del Líquido Amniótico</h2>
+    <h2 class="slide-title">El Líquido Amniótico</h2>
     <div class="content-area">
         <div class="highlight-numbers">
             <div class="number-box">
-                <div class="number">1</div>
-                <div class="number-label">Protección Mecánica</div>
-                <p>Absorbe los impactos y movimientos bruscos externos.</p>
+                <div class="number"><i class="fa-solid fa-flask"></i></div>
+                <div class="number-label">Composición</div>
+                <p style="font-size: 18px;">Compuesto por mucina, cloruro de sodio, fosfatos, glúcidos y urea.</p>
             </div>
             <div class="number-box">
-                <div class="number">2</div>
-                <div class="number-label">Homeostasis Térmica</div>
-                <p>Mantiene una temperatura óptima y constante para el feto.</p>
-            </div>
-            <div class="number-box">
-                <div class="number">3</div>
-                <div class="number-label">Desarrollo Simétrico</div>
-                <p>Permite el libre movimiento para el correcto crecimiento óseo y muscular.</p>
+                <div class="number"><i class="fa-solid fa-shield-heart"></i></div>
+                <div class="number-label">Funciones</div>
+                <p style="font-size: 18px;">Elemento protector que permite el movimiento del embrión y amortigua los golpes. Ayuda en la dilatación del cuello uterino.</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="slide-container" id="slide6">
-    <h2 class="slide-title">Transición: De Embrión a Feto</h2>
-    <div class="content-area">
-        <div class="rounded-image-layout">
-            <div class="rounded-image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/17220127266506424180" alt="Esquema limpio de feto humano">
-            </div>
-            <div>
-                <h3>La Novena Semana</h3>
-                <p>A partir de este hito, los sistemas y órganos principales ya están esbozados. El organismo entra en una etapa clave de crecimiento acelerado y maduración biológica.</p>
-                <p>El feto depende por completo del intercambio placentario para respirar (oxígeno) y alimentarse, expulsando los desechos metabólicos a través de la madre.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="slide-container" id="slide7">
-    <h2 class="slide-title">Desarrollo Fetal: Meses 1 a 5</h2>
+    <h2 class="slide-title">Desarrollo Fetal: Primer Trimestre</h2>
     <div class="content-area">
         <div class="table-layout">
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 20%;">Mes</th>
-                        <th style="width: 80%;">Hitos Principales del Crecimiento</th>
+                        <th style="width: 25%;">Mes</th>
+                        <th style="width: 75%;">Características del Desarrollo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>1er Mes</strong></td>
-                        <td>Inicio del sistema nervioso central y primeros latidos rudimentarios del corazón.</td>
+                        <td><strong>Primer mes</strong></td>
+                        <td>El cigoto se convierte en blastocisto, se implanta, forma las capas germinales y desarrolla el tubo neural y el sistema cardiovascular con latidos desde el día 22-23.</td>
                     </tr>
                     <tr>
-                        <td><strong>2do Mes</strong></td>
-                        <td>Esbozo de extremidades (brazos, piernas) y definición de las facciones del rostro.</td>
+                        <td><strong>Segundo mes</strong></td>
+                        <td>Formación de extremidades, órganos principales y rasgos faciales; desarrollo del sistema nervioso central y cierre del tubo neural. El embrión, ahora feto, inicia sus primeros movimientos.</td>
                     </tr>
                     <tr>
-                        <td><strong>3er Mes</strong></td>
-                        <td>Los riñones empiezan a funcionar. El feto realiza movimientos activos.</td>
+                        <td><strong>Tercer mes</strong></td>
+                        <td>Al final del primer trimestre se diferencian los órganos sexuales, se forman las uñas y los dedos, el hígado inicia la producción de eritrocitos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Desarrollo Fetal: Segundo Trimestre</h2>
+    <div class="content-area">
+        <div class="table-layout">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Mes</th>
+                        <th style="width: 75%;">Características del Desarrollo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cuarto mes</strong></td>
+                        <td>El feto desarrolla músculos y nervios con movimientos coordinados, aparecen cabellos, cejas y órganos como el aparato digestivo comienzan a funcionar parcialmente (succión de líquido amniótico).</td>
                     </tr>
                     <tr>
-                        <td><strong>4to Mes</strong></td>
-                        <td>El cuerpo se cubre de un vello fino (lanugo). Se pueden oír los latidos con claridad.</td>
+                        <td><strong>Quinto mes</strong></td>
+                        <td>La madre siente los movimientos fetales, la piel se cubre de vérnix caseosa y lanugo, se forman huellas dactilares, se definen los huesos y avanza el desarrollo del sistema nervioso central.</td>
                     </tr>
                     <tr>
-                        <td><strong>5to Mes</strong></td>
-                        <td>Formación de huellas dactilares. Reflejo de succión perceptible. Peso aproximado de 300g.</td>
+                        <td><strong>Sexto mes</strong></td>
+                        <td>Al final del segundo trimestre, los pulmones desarrollan bronquiolos y sacos alveolares, el feto abre los ojos, escucha y responde a sonidos externos.</td>
                     </tr>
                 </tbody>
             </table>
@@ -221,32 +224,28 @@
 </div>
 
 <div class="slide-container" id="slide8">
-    <h2 class="slide-title">Desarrollo Fetal: Meses 6 a 9</h2>
+    <h2 class="slide-title">Desarrollo Fetal: Tercer Trimestre</h2>
     <div class="content-area">
         <div class="table-layout">
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 20%;">Mes</th>
-                        <th style="width: 80%;">Hitos Principales del Crecimiento</th>
+                        <th style="width: 25%;">Mes</th>
+                        <th style="width: 75%;">Características del Desarrollo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>6to Mes</strong></td>
-                        <td>Maduración del tejido pulmonar. El feto ya puede abrir y cerrar los párpados.</td>
+                        <td><strong>Séptimo mes</strong></td>
+                        <td>Aumenta la masa muscular, madura el sistema respiratorio y se desarrolla el sistema nervioso autónomo.</td>
                     </tr>
                     <tr>
-                        <td><strong>7mo Mes</strong></td>
-                        <td>Desarrollo cerebral acelerado. El sistema nervioso central controla funciones básicas.</td>
+                        <td><strong>Octavo mes</strong></td>
+                        <td>Los huesos están formados pero flexibles, el sistema inmunológico se activa y los movimientos fetales disminuyen por falta de espacio.</td>
                     </tr>
                     <tr>
-                        <td><strong>8vo Mes</strong></td>
-                        <td>Acumulación de grasa subcutánea. Generalmente se posiciona con la cabeza hacia abajo (cefálica).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>9no Mes</strong></td>
-                        <td>Maduración pulmonar completa. El feto está 100% listo para la transición al entorno exterior.</td>
+                        <td><strong>Noveno mes</strong></td>
+                        <td>Los pulmones se completan, el feto adopta posición cefálica y desarrolla reflejos de succión y agarre para el nacimiento completando su desarrollo.</td>
                     </tr>
                 </tbody>
             </table>
@@ -255,47 +254,48 @@
 </div>
 
 <div class="slide-container" id="slide9">
-    <div class="section-title-layout">
-        <p style="color: #11CAA0; font-weight: 700;">Capítulo 2</p>
-        <h2>El Parto Humano</h2>
-        <div style="width: 100px; height: 5px; background: #11CAA0; margin: 40px auto;"></div>
+    <h2 class="slide-title">2. El parto en los seres humanos</h2>
+    <div class="content-area">
+        <p style="font-size: 20px; text-align: justify; margin-bottom: 30px;">
+            Después de nueve meses de embarazo, se produce la separación del hijo del útero materno (nacimiento o parto). El tapón cervical, compuesto de moco y desarrollado bajo la influencia de la progesterona, protege al útero de bacterias. En el 95% de los nacimientos, el feto se presenta con la cabeza hacia abajo.
+        </p>
     </div>
 </div>
 
 <div class="slide-container" id="slide10">
-    <h2 class="slide-title">Las Tres Fases del Nacimiento</h2>
+    <h2 class="slide-title">Las Tres Etapas del Parto</h2>
     <div class="content-area">
         <div class="timeline">
             <div class="timeline-item">
-                <h3>1. Dilatación</h3>
-                <p>Contracciones uterinas rítmicas. El cuello del útero se expande gradualmente hasta alcanzar los 10 centímetros requeridos.</p>
+                <h3>Dilatación</h3>
+                <p style="font-size: 15px;">Comienza con las contracciones del útero y concluye cuando el cuello se dilata completamente. El saco amniótico se rompe expulsando fluidos.</p>
             </div>
             <div class="timeline-item">
-                <h3>2. Expulsión</h3>
-                <p>Pujos activos de la madre combinados con contracciones intensas que guían la salida completa del bebé al exterior.</p>
+                <h3>Expulsión</h3>
+                <p style="font-size: 15px;">Comienza con la dilatación completa del cuello uterino, permitiendo la expulsión del bebé, quien al nacer respira, llora y empieza su vida.</p>
             </div>
             <div class="timeline-item">
-                <h3>3. Alumbramiento</h3>
-                <p>Fase final donde se desprende y expulsa por completo la placenta junto con las membranas fetales del útero.</p>
+                <h3>Etapa placentaria</h3>
+                <p style="font-size: 15px;">Inicia entre 20 y 30 minutos después del nacimiento y concluye con la expulsión de la placenta, acompañada de contracciones uterinas que expulsan fluidos sanguíneos.</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="slide-container" id="slide11">
-    <h2 class="slide-title">Salud y Nutrición Gestacional</h2>
+    <h2 class="slide-title">3. Cuidados y Nutrición Gestacional</h2>
     <div class="content-area">
-        <div class="two-column" style="grid-template-columns: 1fr 1fr;">
+        <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
             <div>
-                <p>Un desarrollo exitoso requiere pautas estrictas de salud materna:</p>
-                <ul class="bullet-list">
-                    <li><i class="fa-solid fa-leaf"></i><strong>Ácido Fólico:</strong> Indispensable para evitar anomalías en el tubo neural.</li>
-                    <li><i class="fa-solid fa-apple-whole"></i><strong>Hierro y Calcio:</strong> Esenciales para la formación de sangre y esqueleto fetal.</li>
-                    <li><i class="fa-solid fa-ban"></i><strong>Sustancias Tóxicas:</strong> Cero tolerancia al alcohol, tabaco y fármacos no prescritos.</li>
-                </ul>
+                <p style="font-size: 18px; text-align: justify;">
+                    Se recomienda una dieta equilibrada rica en frutas, verduras y cereales integrales, evitando alimentos grasos y azucarados. Es importante incluir leche, productos lácteos, jugo de naranja, brócoli y pescado. 
+                </p>
+                <p style="font-size: 18px; text-align: justify; margin-top: 10px;">
+                    Se debe tomar ácido fólico un mes antes de la concepción y durante los primeros tres meses, además de suplementos de hierro y limitar el consumo de té, café y chocolate. Evitar totalmente el consumo de alcohol y drogas.
+                </p>
             </div>
             <div class="image-wrapper">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/5995361860314963853" alt="Alimentación balanceada en el embarazo">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17220127266506424180" alt="Esquema de etapas del parto">
             </div>
         </div>
     </div>
@@ -303,11 +303,12 @@
 
 <div class="slide-container" id="slide12">
     <div class="title-layout">
-        <h2 style="font-size: 56px;">Prevención y Proyecto de Vida</h2>
-        <p style="max-width: 800px; margin: 40px auto; font-size: 24px;">La planificación familiar y la prevención del embarazo adolescente nos permiten construir un futuro sólido y alcanzar nuestras metas académicas.</p>
-        <div style="margin-top: 50px;">
-            <p style="font-weight: bold; font-size: 22px;">¿Tienen alguna pregunta o duda?</p>
-            <p style="color: #64748b; margin-top: 10px;">¡Muchas gracias por su valiosa atención!</p>
+        <h2 style="font-size: 48px;">Prevención y Proyecto de Vida</h2>
+        <p style="max-width: 900px; margin: 30px auto; font-size: 22px; text-align: center;">
+            El 26 de septiembre se recuerda el "Día mundial de la Prevención del Pregreso no Planificado en Adolescentes", buscando concienciar sobre proyectos de vida saludables. Tomar decisiones adecuadas nos permite continuar estudiando para formarnos como profesionales.
+        </p>
+        <div style="margin-top: 30px;">
+            <p style="font-weight: bold; font-size: 24px; color: #11CAA0;">¡Muchas gracias por su atención!</p>
         </div>
     </div>
 </div>
